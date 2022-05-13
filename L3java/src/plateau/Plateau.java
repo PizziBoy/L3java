@@ -21,7 +21,7 @@ public class Plateau {
 	
 
 	public Case getCases(int x, int y) {
-		return null;
+		return cases[x][y];
 	}
 
 	public void setCases(Case[][] cases) {

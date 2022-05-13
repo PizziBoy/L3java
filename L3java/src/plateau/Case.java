@@ -9,4 +9,9 @@ public class Case {
 		this.x = x;
 		this.y = y;
 	}
+	
+	@Override
+	public String toString() {
+		return "[ ]";
+	}
 }
