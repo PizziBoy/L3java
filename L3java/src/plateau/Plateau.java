@@ -55,7 +55,51 @@ public class Plateau extends JPanel {
 				this.plateau.add(cases[i][j]);
 			}
 		}
-	}
+
+		
+		//Cases camp A (haut gauche)
+		cases[0][0] = new CaseCamp(0, 0, );
+		cases[0][1] = new CaseCamp(0, 1, );
+		cases[0][2] = new CaseCamp(0, 2, );
+		cases[1][0] = new CaseCamp(1, 0, );
+		cases[1][1] = new CaseCamp(1, 1, );
+		cases[2][0] = new CaseCamp(2, 0, );
+		
+		//Cases camp B (bas droite)
+		cases[12][14] = new CaseCamp(12, 14, );
+		cases[13][13] = new CaseCamp(13, 13, );
+		cases[13][14] = new CaseCamp(13, 14, );
+		cases[14][12] = new CaseCamp(14, 12, );
+		cases[14][13] = new CaseCamp(14, 13, );
+		cases[14][14] = new CaseCamp(14, 14, );
+		
+		//Cases obstacles
+		cases[1][10] = new CaseMur(1, 10);
+		cases[2][9] = new CaseMur(2, 9);
+		cases[4][13] = new CaseMur(4, 13);
+		cases[5][6] = new CaseMur(5, 6);
+		cases[5][8] = new CaseMur(5, 8);
+		cases[5][12] = new CaseMur(5, 12);
+		cases[6][5] = new CaseMur(6, 5);
+		cases[6][9] = new CaseMur(6, 9);
+		cases[7][4] = new CaseMur(7, 4);
+		cases[7][10] = new CaseMur(7, 10);
+		cases[8][5] = new CaseMur(8, 5);
+		cases[8][9] = new CaseMur(8, 9);
+		cases[9][2] = new CaseMur(9, 2);
+		cases[9][6] = new CaseMur(9, 6);
+		cases[9][8] = new CaseMur(9, 8);
+		cases[10][1] = new CaseMur(10, 1);
+		cases[12][5] = new CaseMur(12, 5);
+		cases[13][4] = new CaseMur(13, 4);
+		
+		//Cases bonus
+		cases[1][13] = new CaseBonus(1, 13);
+		cases[13][1] = new CaseBonus(13, 1);
+		
+		//Case oeufs
+		cases[7][]
+
 	
 
 	public Case getCases(int x, int y) {
