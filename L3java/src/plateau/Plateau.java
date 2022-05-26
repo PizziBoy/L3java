@@ -53,20 +53,20 @@ public class Plateau extends JPanel {
 
 		
 		//Cases camp A (haut gauche)
-		cases[0][0] = new CaseCamp(0, 0, );
-		cases[0][1] = new CaseCamp(0, 1, );
-		cases[0][2] = new CaseCamp(0, 2, );
-		cases[1][0] = new CaseCamp(1, 0, );
-		cases[1][1] = new CaseCamp(1, 1, );
-		cases[2][0] = new CaseCamp(2, 0, );
+		cases[0][0] = new CaseCamp(0, 0, Color.gray);
+		cases[0][1] = new CaseCamp(0, 1, Color.gray);
+		cases[0][2] = new CaseCamp(0, 2, Color.gray);
+		cases[1][0] = new CaseCamp(1, 0, Color.gray);
+		cases[1][1] = new CaseCamp(1, 1, Color.gray);
+		cases[2][0] = new CaseCamp(2, 0, Color.gray);
 		
 		//Cases camp B (bas droite)
-		cases[12][14] = new CaseCamp(12, 14, );
-		cases[13][13] = new CaseCamp(13, 13, );
-		cases[13][14] = new CaseCamp(13, 14, );
-		cases[14][12] = new CaseCamp(14, 12, );
-		cases[14][13] = new CaseCamp(14, 13, );
-		cases[14][14] = new CaseCamp(14, 14, );
+		cases[12][14] = new CaseCamp(12, 14, Color.white);
+		cases[13][13] = new CaseCamp(13, 13, Color.white);
+		cases[13][14] = new CaseCamp(13, 14, Color.white);
+		cases[14][12] = new CaseCamp(14, 12, Color.white);
+		cases[14][13] = new CaseCamp(14, 13, Color.white);
+		cases[14][14] = new CaseCamp(14, 14, Color.white);
 		
 		//Cases obstacles
 		cases[1][10] = new CaseMur(1, 10, Color.black);
@@ -94,6 +94,12 @@ public class Plateau extends JPanel {
 		
 		//Case oeufs
 		cases[7][7] = new CaseOeuf(7, 7, Color.magenta);	
+
+		cases[7][7] = new CaseOeuf(7, 7);	
+		
+		
+	}
+
 
 	public Case getCases(int x, int y) {
 		return cases[x][y];
