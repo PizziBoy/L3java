@@ -5,8 +5,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.AbstractButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import joueur.Joueur;
 import personnages.Personnage;
 
 
@@ -16,9 +19,10 @@ public class Plateau extends JPanel {
 	private JPanel plateau;
 	private JPanel tableauBord;
 	
-	
+	//PARAM JEU
 	private static final int TAILLE_PLATEAU = 15;
 	
+	//Cases physiques
 	private Case[][] cases;
 	
 	public Plateau() {
@@ -94,6 +98,15 @@ public class Plateau extends JPanel {
 						this.plateau.add(cases[i][j]);
 					}
 				}
+				
+		//Personnages creation
+		this.
+				
+		//this.cases[0][1].setIcon(new ImageIcon(Personnage.archer.getImage()));
+		this.positionnerPiece(Personnage.villageois, 0, 1, Joueur.J1);
+		this.positionnerPiece(Personnage.archer, 0, 2);
+		this.positionnerPiece(Personnage.barbare, 0, 3);
+		//this.positionnerPiece(PieceIHM.tourN, 0, 3);
 
 		
 		
@@ -109,7 +122,8 @@ public class Plateau extends JPanel {
 	}
 	
 	public void positionnerPiece(Personnage piece, int i, int j) {
-		((Personnage)this.plateau.getComponent(i * this.TAILLE_PLATEAU + j)).setIcon(piece);
+
+		((Case)this.plateau.getComponent(i + this.TAILLE_PLATEAU + j)).setIcon(piece);
 	}
 	
 	@Override

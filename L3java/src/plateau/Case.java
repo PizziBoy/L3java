@@ -5,6 +5,10 @@ import java.awt.Color;
 import javax.swing.JButton;
 
 public class Case extends JButton {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//tuple x,y
 	private int x;
 	private int y;

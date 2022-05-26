@@ -11,6 +11,9 @@ public class Joueur {
 		this.nom = nom;
 		this.score = 0;
 	}
+	
+	public static Joueur J1 = new Joueur("joueur 1");
+	public static Joueur J2 = new Joueur("joueur 2");
 
 
 	public int getScore() {

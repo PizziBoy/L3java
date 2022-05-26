@@ -6,24 +6,24 @@ import javax.swing.ImageIcon;
 
 import armes.Arme;
 import combat.Combat;
+import joueur.Joueur;
 
 public class Personnage extends ImageIcon {
-	//Couleur représente J1 ou J2
-	private Color couleur;
+	Color couleur;
 	private int vie;
 	private Arme arme;
 	private int nbCasesDeplacement;
 	private boolean estPorteurDunOeuf;
 	
-	//tuple x,y
-	private int[] position;
 	
 	
 	
-	public Personnage(int vie, Arme arme) {
-		super("./src/IHM.images/"+ nom + couleur + type + ".gif");
+	
+	public Personnage(int vie, Arme arme, String type, Color couleur) {
+		super("./src/icones_L3JAVA/"+ type + ".png");
 		this.vie = vie;
 		this.arme = arme;
+		this.couleur = couleur;
 	}
 	
 	public void entrerEnCombat(Personnage y) {
@@ -39,13 +39,6 @@ public class Personnage extends ImageIcon {
 		}
 	
 
-	public int[] getPosition() {
-		return position;
-	}
-
-	public void setPosition(int[] position) {
-		this.position = position;
-	}
 
 	public int getVie() {
 		return vie;
