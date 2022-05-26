@@ -57,7 +57,7 @@ public class Plateau {
 		cases[13][1] = new CaseBonus(13, 1);
 		
 		//Case oeufs
-		cases[7][]
+		cases[7][7] = new CaseOeuf(7, 7);
 	}
 	
 
