@@ -1,9 +1,15 @@
 package personnages;
 
+import java.awt.Color;
+
+import javax.swing.ImageIcon;
+
 import armes.Arme;
 import combat.Combat;
 
-public class Personnage {
+public class Personnage extends ImageIcon {
+	//Couleur représente J1 ou J2
+	private Color couleur;
 	private int vie;
 	private Arme arme;
 	private int nbCasesDeplacement;
@@ -15,7 +21,7 @@ public class Personnage {
 	
 	
 	public Personnage(int vie, Arme arme) {
-		super();
+		super("./src/IHM.images/"+ nom + couleur + type + ".gif");
 		this.vie = vie;
 		this.arme = arme;
 	}
