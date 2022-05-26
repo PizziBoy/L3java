@@ -99,14 +99,13 @@ public class Plateau extends JPanel {
 					}
 				}
 				
-		//Personnages creation
-		this.
+		//Personnages creation this.
 				
-		//this.cases[0][1].setIcon(new ImageIcon(Personnage.archer.getImage()));
+		this.cases[0][1].setIcon(new ImageIcon(Personnage.archer.getImage()));
 		this.positionnerPiece(Personnage.villageois, 0, 1, Joueur.J1);
 		this.positionnerPiece(Personnage.archer, 0, 2);
 		this.positionnerPiece(Personnage.barbare, 0, 3);
-		//this.positionnerPiece(PieceIHM.tourN, 0, 3);
+		this.positionnerPiece(PieceIHM.tourN, 0, 3);
 
 		
 		
