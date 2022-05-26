@@ -26,6 +26,22 @@ public class Personnage extends ImageIcon {
 		this.couleur = couleur;
 	}
 	
+	
+	
+	public static Personnage villageois = new Villageois(100, null, Color.white);
+	public static Personnage archer = new Archer(100, null, Color.white);
+	public static Personnage archer1 = new Archer(100, null, Color.white);
+	public static Personnage barbare = new Barbare(100, null, Color.white);
+	public static Personnage barbare1 = new Barbare(100, null, Color.white);
+	public static Personnage barbare2 = new Barbare(100, null, Color.white);
+	
+	public static Personnage darkVillageois = new Villageois(100, null, Color.black);
+	public static Personnage darkArcher = new Archer(100, null, Color.black);
+	public static Personnage darkArcher1 = new Archer(100, null, Color.black);
+	public static Personnage darkBarbare = new Barbare(100, null, Color.black);
+	public static Personnage darkBarbare1 = new Barbare(100, null, Color.black);
+	public static Personnage darkBarbare2 = new Barbare(100, null, Color.black);
+	
 	public void entrerEnCombat(Personnage y) {
 			Combat.combattre(this, y);
 		}

@@ -57,6 +57,7 @@ public class Plateau extends JPanel {
 		cases[1][1] = new CaseCamp(1, 1, Color.gray);
 		cases[2][0] = new CaseCamp(2, 0, Color.gray);
 		
+		
 		//Cases camp B (bas droite)
 		cases[12][14] = new CaseCamp(12, 14, Color.white);
 		cases[13][13] = new CaseCamp(13, 13, Color.white);
@@ -99,14 +100,29 @@ public class Plateau extends JPanel {
 					}
 				}
 				
-		//Personnages creation
-		this.
 				
-		//this.cases[0][1].setIcon(new ImageIcon(Personnage.archer.getImage()));
-		this.positionnerPiece(Personnage.villageois, 0, 1, Joueur.J1);
-		this.positionnerPiece(Personnage.archer, 0, 2);
-		this.positionnerPiece(Personnage.barbare, 0, 3);
-		//this.positionnerPiece(PieceIHM.tourN, 0, 3);
+		//Positionnement CAMP A
+		this.positionnerPiece(Personnage.darkVillageois, 0, 0);
+		this.positionnerPiece(Personnage.darkArcher, 0, 1);
+		this.positionnerPiece(Personnage.darkBarbare, 0, 2);
+		this.positionnerPiece(Personnage.darkArcher1, 1, 0);
+		this.positionnerPiece(Personnage.darkBarbare1, 1, 1);
+		this.positionnerPiece(Personnage.darkBarbare2, 2, 0);
+		
+		//Positionnement CAMP B
+		cases[12][14] = new CaseCamp(12, 14, Color.white);
+		cases[13][13] = new CaseCamp(13, 13, Color.white);
+		cases[13][14] = new CaseCamp(13, 14, Color.white);
+		cases[14][12] = new CaseCamp(14, 12, Color.white);
+		cases[14][13] = new CaseCamp(14, 13, Color.white);
+		cases[14][14] = new CaseCamp(14, 14, Color.white);
+		
+		this.positionnerPiece(Personnage.villageois, 14, 14);
+		this.positionnerPiece(Personnage.archer, 13, 14);
+		this.positionnerPiece(Personnage.barbare, 14, 12);
+		this.positionnerPiece(Personnage.archer1, 14, 13);
+		this.positionnerPiece(Personnage.barbare1, 13, 13);
+		this.positionnerPiece(Personnage.barbare2, 12, 14);
 
 		
 		
@@ -123,7 +139,7 @@ public class Plateau extends JPanel {
 	
 	public void positionnerPiece(Personnage piece, int i, int j) {
 
-		((Case)this.plateau.getComponent(i + this.TAILLE_PLATEAU + j)).setIcon(piece);
+		((Case)this.plateau.getComponent(i * this.TAILLE_PLATEAU + j)).setIcon(piece);
 	}
 	
 	@Override
