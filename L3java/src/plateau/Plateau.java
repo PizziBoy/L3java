@@ -37,7 +37,7 @@ public class Plateau extends JPanel {
 		//Set blank cases
 		for(int i = 0; i < TAILLE_PLATEAU; i ++) {
 			for(int j = 0; j < TAILLE_PLATEAU; j ++) {
-				cases[i][j] = new Case(i, j, null);
+				cases[i][j] = new Case(i, j, Color.LIGHT_GRAY);
 			}
 		}
 		//Set particular cases
