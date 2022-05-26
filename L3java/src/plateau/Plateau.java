@@ -38,18 +38,11 @@ public class Plateau extends JPanel {
 		for(int i = 0; i < TAILLE_PLATEAU; i ++) {
 			for(int j = 0; j < TAILLE_PLATEAU; j ++) {
 				cases[i][j] = new Case(i, j, null);
-				this.plateau.add(cases[i][j]);
 			}
 		}
 		//Set particular cases
 		cases[1][13] = new CaseBonus(1, 13, Color.yellow);
 		
-		//Add to GUI
-		for(int i = 0; i < TAILLE_PLATEAU; i ++) {
-			for(int j = 0; j < TAILLE_PLATEAU; j ++) {
-				this.plateau.add(cases[i][j]);
-			}
-		}
 
 		
 		//Cases camp A (haut gauche)
@@ -94,8 +87,14 @@ public class Plateau extends JPanel {
 		
 		//Case oeufs
 		cases[7][7] = new CaseOeuf(7, 7, Color.magenta);	
+		
+		//Add to GUI
+				for(int i = 0; i < TAILLE_PLATEAU; i ++) {
+					for(int j = 0; j < TAILLE_PLATEAU; j ++) {
+						this.plateau.add(cases[i][j]);
+					}
+				}
 
-		cases[7][7] = new CaseOeuf(7, 7);	
 		
 		
 	}
