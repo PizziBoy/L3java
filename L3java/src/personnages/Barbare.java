@@ -7,8 +7,8 @@ import joueur.Joueur;
 
 public class Barbare extends Personnage {
 
-	public Barbare(int vie, Arme arme, Color couleur) {
-		super(vie, arme, "Barbare", couleur);
+	public Barbare(int vie, Arme arme, String equipe) {
+		super(vie, arme, "Barbare", equipe);
 		// TODO Auto-generated constructor stub
 	}
 

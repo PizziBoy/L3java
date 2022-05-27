@@ -11,16 +11,13 @@ public class Main {
 	public static void main(String[] args) {
 		
 		JFrame f = new JFrame();
-		f.setLayout(new GridLayout(1, 1));
 		f.add(new Plateau());
+		f.repaint();
 		f.pack();
 		f.setVisible(true);
-		f.setSize(300, 300);
+		f.setSize(1920, 1080);
 		
 		
-		Plateau plateauTest = new Plateau();
-		
-		System.out.println(plateauTest);
 
 	}
 

@@ -3,12 +3,14 @@ package plateau;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 
 import javax.swing.AbstractButton;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import jeu.ControleurJeu;
 import joueur.Joueur;
 import personnages.Personnage;
 
@@ -24,6 +26,9 @@ public class Plateau extends JPanel {
 	
 	//Cases physiques
 	private Case[][] cases;
+	
+	//Case sélectionnée
+	private Case selection;
 	
 	public Plateau() {
 		
@@ -97,32 +102,26 @@ public class Plateau extends JPanel {
 				for(int i = 0; i < TAILLE_PLATEAU; i ++) {
 					for(int j = 0; j < TAILLE_PLATEAU; j ++) {
 						this.plateau.add(cases[i][j]);
+						this.plateau.getComponent(i * this.TAILLE_PLATEAU + j).addMouseListener((MouseListener) new ControleurJeu(this));
 					}
 				}
 				
 				
 		//Positionnement CAMP A
-		this.positionnerPiece(Personnage.darkVillageois, 0, 0);
-		this.positionnerPiece(Personnage.darkArcher, 0, 1);
-		this.positionnerPiece(Personnage.darkBarbare, 0, 2);
-		this.positionnerPiece(Personnage.darkArcher1, 1, 0);
-		this.positionnerPiece(Personnage.darkBarbare1, 1, 1);
-		this.positionnerPiece(Personnage.darkBarbare2, 2, 0);
+		this.positionnerPersonnage(Personnage.darkVillageois, 0, 0, true);
+		this.positionnerPersonnage(Personnage.darkArcher, 0, 1, true);
+		this.positionnerPersonnage(Personnage.darkBarbare, 0, 2, true);
+		this.positionnerPersonnage(Personnage.darkArcher1, 1, 0, true);
+		this.positionnerPersonnage(Personnage.darkBarbare1, 1, 1, true);
+		this.positionnerPersonnage(Personnage.darkBarbare2, 2, 0, true);
 		
 		//Positionnement CAMP B
-		cases[12][14] = new CaseCamp(12, 14, Color.white);
-		cases[13][13] = new CaseCamp(13, 13, Color.white);
-		cases[13][14] = new CaseCamp(13, 14, Color.white);
-		cases[14][12] = new CaseCamp(14, 12, Color.white);
-		cases[14][13] = new CaseCamp(14, 13, Color.white);
-		cases[14][14] = new CaseCamp(14, 14, Color.white);
-		
-		this.positionnerPiece(Personnage.villageois, 14, 14);
-		this.positionnerPiece(Personnage.archer, 13, 14);
-		this.positionnerPiece(Personnage.barbare, 14, 12);
-		this.positionnerPiece(Personnage.archer1, 14, 13);
-		this.positionnerPiece(Personnage.barbare1, 13, 13);
-		this.positionnerPiece(Personnage.barbare2, 12, 14);
+		this.positionnerPersonnage(Personnage.villageois, 14, 14, true);
+		this.positionnerPersonnage(Personnage.archer, 13, 14, true);
+		this.positionnerPersonnage(Personnage.barbare, 14, 12, true);
+		this.positionnerPersonnage(Personnage.archer1, 14, 13, true);
+		this.positionnerPersonnage(Personnage.barbare1, 13, 13, true);
+		this.positionnerPersonnage(Personnage.barbare2, 12, 14, true);
 
 		
 		
@@ -137,9 +136,35 @@ public class Plateau extends JPanel {
 		this.cases = cases;
 	}
 	
-	public void positionnerPiece(Personnage piece, int i, int j) {
+	public void positionnerPersonnage(Personnage personnage, int i, int j, boolean init) {
+		//MAJ model 
+		
+		
+		this.getCases(i, j).setPersonnage(personnage);
+		
+		//MAJ view
+		((Case)this.plateau.getComponent(i * this.TAILLE_PLATEAU + j)).setIcon(new ImageIcon(personnage.img));
+		
+		//RESET image selection if not init
+		if (!init) {
+			this.getSelection().setIcon(null);
+			this.getSelection().setPersonnage(null);
+		}
+		
+			
+		
+	}
+	
+	
 
-		((Case)this.plateau.getComponent(i * this.TAILLE_PLATEAU + j)).setIcon(piece);
+
+	public Case getSelection() {
+		return selection;
+	}
+
+
+	public void setSelection(Case selection) {
+		this.selection = selection;
 	}
 	
 	@Override

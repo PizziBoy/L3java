@@ -11,6 +11,7 @@ import joueur.Joueur;
 public class Personnage extends ImageIcon {
 	Color couleur;
 	private int vie;
+	public String img;
 	private Arme arme;
 	private int nbCasesDeplacement;
 	private boolean estPorteurDunOeuf;
@@ -19,36 +20,36 @@ public class Personnage extends ImageIcon {
 	
 	
 	
-	public Personnage(int vie, Arme arme, String type, Color couleur) {
-		super("./src/icones_L3JAVA/"+ type + ".png");
+	public Personnage(int vie, Arme arme, String type, String equipe) {
+		super("./src/icones_L3JAVA/"+ equipe + type + ".png");
+		this.img = "./src/icones_L3JAVA/"+ equipe + type + ".png";
 		this.vie = vie;
 		this.arme = arme;
-		this.couleur = couleur;
+		//Différenciation au niveau des 2 joueurs
+		if (equipe == "light") this.couleur = Color.white;
+		if (equipe == "dark") this.couleur = Color.black;
 	}
 	
 	
+	//Personnages prédéfinis 
+	public static Personnage villageois = new Villageois(100, null, "light");
+	public static Personnage archer = new Archer(100, null, "light");
+	public static Personnage archer1 = new Archer(100, null, "light");
+	public static Personnage barbare = new Barbare(100, null, "light");
+	public static Personnage barbare1 = new Barbare(100, null, "light");
+	public static Personnage barbare2 = new Barbare(100, null, "light");
 	
-	public static Personnage villageois = new Villageois(100, null, Color.white);
-	public static Personnage archer = new Archer(100, null, Color.white);
-	public static Personnage archer1 = new Archer(100, null, Color.white);
-	public static Personnage barbare = new Barbare(100, null, Color.white);
-	public static Personnage barbare1 = new Barbare(100, null, Color.white);
-	public static Personnage barbare2 = new Barbare(100, null, Color.white);
-	
-	public static Personnage darkVillageois = new Villageois(100, null, Color.black);
-	public static Personnage darkArcher = new Archer(100, null, Color.black);
-	public static Personnage darkArcher1 = new Archer(100, null, Color.black);
-	public static Personnage darkBarbare = new Barbare(100, null, Color.black);
-	public static Personnage darkBarbare1 = new Barbare(100, null, Color.black);
-	public static Personnage darkBarbare2 = new Barbare(100, null, Color.black);
+	public static Personnage darkVillageois = new Villageois(100, null, "dark");
+	public static Personnage darkArcher = new Archer(100, null, "dark");
+	public static Personnage darkArcher1 = new Archer(100, null, "dark");
+	public static Personnage darkBarbare = new Barbare(100, null, "dark");
+	public static Personnage darkBarbare1 = new Barbare(100, null, "dark");
+	public static Personnage darkBarbare2 = new Barbare(100, null, "dark");
 	
 	public void entrerEnCombat(Personnage y) {
 			Combat.combattre(this, y);
 		}
 	
-	public void donnerCoup(Personnage y, int degat) {
-		y.setVie(this.getVie() - degat);
-	}
 	
 	public void recevoirCoup(int degat) {
 		this.setVie(this.getVie() - degat);

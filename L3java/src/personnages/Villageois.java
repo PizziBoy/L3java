@@ -7,8 +7,8 @@ import joueur.Joueur;
 
 public class Villageois extends Personnage {
 
-	public Villageois(int vie, Arme arme, Color couleur) {
-		super(vie, arme, "Villageois", couleur);
+	public Villageois(int vie, Arme arme, String equipe) {
+		super(vie, arme, "Villageois", equipe);
 		// TODO Auto-generated constructor stub
 	}
 

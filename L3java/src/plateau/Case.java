@@ -4,11 +4,12 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 
+import personnages.Personnage;
+
 public class Case extends JButton {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	//Classname personnage 
+	private Personnage personnage;
+
 	//tuple x,y
 	private int x;
 	private int y;
@@ -30,6 +31,16 @@ public class Case extends JButton {
 
 	public int getY() {
 		return y;
+	}
+	
+	public Personnage getPersonnage() {
+		return this.personnage;
+	}
+
+
+
+	public void setPersonnage(Personnage piece) {
+		this.personnage = piece;
 	}
 
 
