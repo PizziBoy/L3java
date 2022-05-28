@@ -6,6 +6,11 @@ import javax.swing.JButton;
 
 import personnages.Personnage;
 
+
+/**
+ * Classe représentant une Case du Plateau
+ * 
+ */
 public class Case extends JButton {
 	//Classname personnage 
 	private Personnage personnage;
@@ -15,7 +20,14 @@ public class Case extends JButton {
 	private int y;
 	private Color couleur;
 	
+	/**
+	 * Construit une case à l'aide de ses coordonnées sur le plateau ainsi que sa couleur de fond
+	 * @param x	coordonnée x
+	 * @param y coordonnée y
+	 * @param couleur	Color
+	 */
 	public Case(int x, int y, Color couleur) {
+		super();
 		this.x = x;
 		this.y = y;
 		this.setBackground(couleur);

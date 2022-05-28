@@ -6,12 +6,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.concurrent.TimeUnit;
 
+import Bonus.Bonus;
 import combat.Combat;
 import personnages.Personnage;
 import plateau.Case;
+import plateau.CaseBonus;
 import plateau.CaseMur;
 import plateau.Plateau;
 
+
+/**
+ * 
+ * Classe contrôlant l'interface du Plateau
+ *
+ */
 public class ControleurJeu implements MouseListener{
 	
 	private enum etatControleur{
@@ -24,13 +32,20 @@ public class ControleurJeu implements MouseListener{
 	private boolean estPartieFinie;
 	
 	
-	//INIT de partie
+	/**
+	 * 
+	 * Construit un controleur avec écoute
+	 * @param plateau Plateau du jeu
+	 */
 	public ControleurJeu(Plateau plateau) {
 		super();
 		this.plateau = plateau;
 		this.etat = etatControleur.J1;
 		this.estPartieFinie = false;
 	}
+	
+	
+	
 
 
 
@@ -42,7 +57,7 @@ public class ControleurJeu implements MouseListener{
 		System.out.println(this.plateau.getCases(x, y).getPersonnage());
 		
 		
-		//COMBAT
+		//Si la case de destination contient déja un personnage 
 		if (this.plateau.getSelection() != null && this.plateau.getCases(x, y).getPersonnage() instanceof Personnage &&
 				this.plateau.getSelection().getPersonnage().getCouleur() != this.plateau.getCases(x, y).getPersonnage().getCouleur()) {
 			//Setup combat
@@ -53,6 +68,12 @@ public class ControleurJeu implements MouseListener{
 			System.out.println(combat.getGagnant());
 			
 			
+		} else if (this.plateau.getSelection() != null && this.plateau.getCases(x, y) instanceof CaseBonus) {
+			Bonus.choixBonus(this.plateau.getSelection().getPersonnage());
+			//Déplacement
+			this.plateau.positionnerPersonnage(this.plateau.getSelection().getPersonnage(), x, y, false);
+			//Reset selection plateau
+			this.plateau.setSelection(null);
 		}
 		
 		
@@ -71,7 +92,7 @@ public class ControleurJeu implements MouseListener{
 			//Reset selection plateau
 			this.plateau.setSelection(null);
 		}
-		//Si la case de destination contient déja un personnage 
+		
 		
 		
 	}

@@ -1,11 +1,20 @@
 package joueur;
 
+
+/**
+ * 
+ * Classe caractérisant un Joueur
+ *
+ */
 public class Joueur {
 	private String nom;
 	//Nombre d'oeufs remportés
 	private int score;
 	
-	
+	/**
+	 * Construit un joueur à l'aide de son nom
+	 * @param nom nom du joueur
+	 */
 	public Joueur(String nom) {
 		super();
 		this.nom = nom;

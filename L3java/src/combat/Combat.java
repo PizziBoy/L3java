@@ -21,7 +21,15 @@ import javax.swing.JTextField;
 import personnages.Personnage;
 import plateau.Plateau;
 
-public class Combat extends JFrame implements ActionListener{ //Utilisation de la classe JFrame afin de lancer un combat par le biais d'une interface graphique
+
+
+/**
+ * 
+ * Classe combat entre 2 personnages => ouvre une popup de combat
+ *
+ */
+public class Combat extends JFrame implements ActionListener{ 
+	//Utilisation de la classe JFrame afin de lancer un combat par le biais d'une interface graphique
 	
 	private Personnage gagnant;
 	
@@ -49,7 +57,13 @@ public class Combat extends JFrame implements ActionListener{ //Utilisation de l
 	private JButton button;
 	
 	
-// Initialisation du constructeur combat en récupérant les paramètres des personnages de chaque joueur en entrée
+/**
+ * Construit une popup de combat 
+ * 
+ * @param p1	Personnage1
+ * @param p2	Personnage2
+ * @param plateau	Plateau à mettre à jour 
+ */
 	public Combat(Personnage p1, Personnage p2, Plateau plateau) {
 		
 		//Setup fenêtre combat
@@ -135,6 +149,8 @@ public class Combat extends JFrame implements ActionListener{ //Utilisation de l
 		
 		
 	}
+	
+	//MAJ du combat 
 	public void verifierCombat() {
 		
 		if (this.p1.getVie() == 0 || this.p2.getVie() == 0) {
@@ -145,7 +161,6 @@ public class Combat extends JFrame implements ActionListener{ //Utilisation de l
 		if (this.p2.getVie() == 0) {
 			int xPerdant = this.plateau.getxyByPersonnage(p2)[0];
 			int yPerdant = this.plateau.getxyByPersonnage(p2)[1];
-			System.out.println(xPerdant);
 			this.setGagnant(p1);
 			this.plateau.retirerPersonnage(p2, xPerdant, yPerdant);
 			this.plateau.positionnerPersonnage(p1, xPerdant, yPerdant, false);
@@ -153,7 +168,6 @@ public class Combat extends JFrame implements ActionListener{ //Utilisation de l
 		else {
 			int xPerdant = this.plateau.getxyByPersonnage(p1)[0];
 			int yPerdant = this.plateau.getxyByPersonnage(p1)[1];
-			System.out.println(xPerdant);
 			this.setGagnant(p2);
 			this.plateau.retirerPersonnage(p1, xPerdant, yPerdant);
 			this.plateau.positionnerPersonnage(p2, xPerdant, yPerdant, false);
@@ -162,7 +176,7 @@ public class Combat extends JFrame implements ActionListener{ //Utilisation de l
 		
 	}
 	
-	
+	//Jouer un seul round 
 	public void jouerRound() {
 		
 		//Maj nb round

@@ -16,8 +16,13 @@ import joueur.Joueur;
 import personnages.Personnage;
 
 
-//Plateau est la vue de l'IHM
+
+/**
+ * Classe représentant Plateau, la vue et le modèle combiné de notre IHM 
+ *
+ */
 public class Plateau extends JPanel {
+	
 	//GUI
 	private JPanel plateau;
 	private JPanel tableauBord;
@@ -31,6 +36,9 @@ public class Plateau extends JPanel {
 	//Case sélectionnée
 	private Case selection;
 	
+	/**
+	 * Construit un plateau graphique
+	 */
 	public Plateau() {
 		
 		this.setLayout(new BorderLayout());
@@ -51,10 +59,6 @@ public class Plateau extends JPanel {
 			}
 		}
 		//Set particular cases
-		cases[1][13] = new CaseBonus(1, 13, Color.yellow);
-		
-
-		
 		//Cases camp A (haut gauche)
 		cases[0][0] = new CaseCamp(0, 0, Color.gray);
 		cases[0][1] = new CaseCamp(0, 1, Color.gray);
@@ -99,7 +103,7 @@ public class Plateau extends JPanel {
 		//Case oeufs
 		cases[7][7] = new CaseOeuf(7, 7, Color.magenta);	
 		
-		//Add to GUI
+		//Add cases to GUI
 				for(int i = 0; i < TAILLE_PLATEAU; i ++) {
 					for(int j = 0; j < TAILLE_PLATEAU; j ++) {
 						this.plateau.add(cases[i][j]);
@@ -129,6 +133,11 @@ public class Plateau extends JPanel {
 	}
 
 
+	/**
+	 * Retourne un tableau[x, y] représentant les coordonnées du personnage en paramètre, si le personnage donné se trouve sur le Plateau
+	 * @param personnage	personnage à trouver
+	 * @return	[x, y]
+	 */
 	public int[] getxyByPersonnage(Personnage personnage) {
 		int x = 0;
 		int y = 0;
@@ -146,6 +155,12 @@ public class Plateau extends JPanel {
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @param x	ligne
+	 * @param y	colonne
+	 * @return Case (JButton)
+	 */
 	public Case getCases(int x, int y) {
 		return cases[x][y];
 	}
@@ -154,6 +169,13 @@ public class Plateau extends JPanel {
 		this.cases = cases;
 	}
 	
+	/**
+	 * Positionne un Personnage sur le plateau
+	 * @param personnage	personnage à positionner
+	 * @param i		ligne
+	 * @param j		colonne
+	 * @param init	boolean représentant s'il s'agit d'un premier positionnement ou d'un déplacement
+	 */
 	public void positionnerPersonnage(Personnage personnage, int i, int j, boolean init) {
 		//MAJ model 
 		
@@ -173,6 +195,12 @@ public class Plateau extends JPanel {
 		
 	}
 	
+	/**
+	 *  Retire un Personnage du plateau
+	 * @param personnage Personnage à retirer
+	 * @param i	ligne 
+	 * @param j	colonne
+	 */
 	public void retirerPersonnage(Personnage personnage, int i, int j) {
 		//MAJ model 
 		this.getCases(i, j).setPersonnage(null);

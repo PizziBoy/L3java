@@ -8,6 +8,16 @@ import armes.Arme;
 import combat.Combat;
 import joueur.Joueur;
 
+
+
+
+/**
+ * 
+ * Classe représentant un personnage jouable sur le plateau, Personnage héritant de ImageIcon
+ * 
+ * 
+ *
+ */
 public class Personnage extends ImageIcon {
 	Color couleur;
 	private int vie;
@@ -19,7 +29,14 @@ public class Personnage extends ImageIcon {
 	
 	
 	
-	
+	/**
+	 * 
+	 * 
+	 * @param vie entier représentant les points de vie
+	 * @param arme Arme du personnage
+	 * @param type 'Archer' ou 'Villageois' ou 'Barbare'
+	 * @param equipe 'dark' ou 'light'
+	 */
 	public Personnage(int vie, Arme arme, String type, String equipe) {
 		super("./src/icones_L3JAVA/"+ equipe + type + ".png");
 		this.img = "./src/icones_L3JAVA/"+ equipe + type + ".png";
@@ -51,11 +68,18 @@ public class Personnage extends ImageIcon {
 	
 	
 	
-	
+	/**
+	 * Recevoir un coup en affectant les points de vie du personnage
+	 * 
+	 * @param degat nombre de points de vie à enlever
+	 */
 	public void recevoirCoup(int degat) {
+		//Si les dégats reçus ne mettent pas la vie à 0
 		if (this.getVie() - degat > 0) {
 			this.setVie(this.getVie() - degat);
-		} else {
+		} 
+		//Si les dégats reçus mettent la vie <= à 0
+		else {
 			this.setVie(0);
 		}
 		
