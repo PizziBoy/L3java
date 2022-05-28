@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.concurrent.TimeUnit;
 
+import combat.Combat;
 import personnages.Personnage;
 import plateau.Case;
 import plateau.CaseMur;
@@ -37,14 +39,27 @@ public class ControleurJeu implements MouseListener{
 		
 		int x = ((Case) e.getSource()).getX();
 		int y = ((Case) e.getSource()).getY();
+		System.out.println(this.plateau.getCases(x, y).getPersonnage());
 		
 		
-		if (this.plateau.getSelection() != null && this.plateau.getCases(x, y).getPersonnage() instanceof Personnage) {
-			System.out.println("combat");
+		//COMBAT
+		if (this.plateau.getSelection() != null && this.plateau.getCases(x, y).getPersonnage() instanceof Personnage &&
+				this.plateau.getSelection().getPersonnage().getCouleur() != this.plateau.getCases(x, y).getPersonnage().getCouleur()) {
+			//Setup combat
+			Combat combat = new Combat(this.plateau.getSelection().getPersonnage(), this.plateau.getCases(x, y).getPersonnage(), this.plateau);
+			
+			//Lancer combat
+			
+			System.out.println(combat.getGagnant());
+			
+			
 		}
+		
+		
 		//DEPLACEMENT
 		//Si la case cliquée contient un personnage alors on MAJ la selection du plateau
 		else if (this.plateau.getCases(x, y).getPersonnage() instanceof Personnage ) {
+			System.out.println(this.plateau.getCases(x, y).getPersonnage());
 				//MAJ selection de la case cliquée
 				this.plateau.setSelection(this.plateau.getCases(x, y));
 				System.out.println(this.plateau.getCases(x, y).getPersonnage().img);

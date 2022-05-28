@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.AbstractButton;
 import javax.swing.Icon;
@@ -128,6 +129,23 @@ public class Plateau extends JPanel {
 	}
 
 
+	public int[] getxyByPersonnage(Personnage personnage) {
+		int x = 0;
+		int y = 0;
+		for(int i = 0; i < TAILLE_PLATEAU; i ++) {
+			for(int j = 0; j < TAILLE_PLATEAU; j ++) {
+				if (this.cases[i][j].getPersonnage() == personnage) {
+					x = i;
+					y = j;
+				}
+			}
+		}
+		int[] res = new int[2];
+		res[0] = x;
+		res[1] = y;
+		return res;
+	}
+	
 	public Case getCases(int x, int y) {
 		return cases[x][y];
 	}
@@ -152,6 +170,15 @@ public class Plateau extends JPanel {
 		}
 		
 			
+		
+	}
+	
+	public void retirerPersonnage(Personnage personnage, int i, int j) {
+		//MAJ model 
+		this.getCases(i, j).setPersonnage(null);
+		
+		//MAJ view
+		((Case)this.plateau.getComponent(i * this.TAILLE_PLATEAU + j)).setIcon(null);
 		
 	}
 	
